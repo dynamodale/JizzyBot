@@ -1,10 +1,19 @@
-FROM node:20-alpine
+FROM node:20-slim
+
+# Install build tools needed for @discordjs/opus
+RUN apt-get update && apt-get install -y \
+    python3 \
+    make \
+    g++ \
+    libtool \
+    autoconf \
+    automake \
+    && rm -rf /var/lib/apt/lists/*
 
 # Create app directory
 WORKDIR /usr/src/app
 
 # Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
 COPY package*.json ./
 
 # Install only production dependencies
