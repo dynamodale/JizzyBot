@@ -5,6 +5,7 @@ import {
     AudioPlayerStatus,
     VoiceConnectionStatus,
     entersState,
+    getVoiceConnection,
 } from '@discordjs/voice';
 import {
     EmbedBuilder,
@@ -178,10 +179,10 @@ export class MusicPlayer {
 
         try {
             // 30s timeout — Railway needs more time than local
-            await entersState(this.connection, VoiceConnectionStatus.Ready, 30_000);
+            await entersState(this.connection, VoiceConnectionStatus.Ready, 60_000);
         } catch {
             this.connection.destroy();
-            throw new Error('Could not connect to the voice channel in time. Check my permissions.');
+            throw new Error('Could not connect to the voice channel. Please try again in a moment.');
         }
 
         this.connection.subscribe(this.audioPlayer);
