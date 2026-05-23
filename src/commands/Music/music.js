@@ -3,7 +3,7 @@ import { getPlayer, createPlayer, destroyPlayer } from './modules/MusicPlayer.js
 
 export default {
     data: new SlashCommandBuilder()
-        .setName('Music')
+        .setName('music')
         .setDescription('Music player controls')
 
         // /music play [query]
