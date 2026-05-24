@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { assertAllowlistedIdentifier } from '../utils/sqlIdentifiers.js';
 import { EXPECTED_SCHEMA_LABEL, EXPECTED_SCHEMA_VERSION } from './schemaVersion.js';
 
